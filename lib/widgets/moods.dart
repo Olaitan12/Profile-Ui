@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' show BuildContext, Center, Colors, Icon, Icons, State, StatefulWidget, ToggleButtons, Widget;
+import 'package:flutter/material.dart';
+
 
 class MyMoods extends StatefulWidget {
   @override
@@ -12,21 +13,56 @@ class _MyMoodsState extends State<MyMoods> {
   Widget build(BuildContext context) {
     return Center(
       child: ToggleButtons(
-        selectedBorderColor: Colors.purple,
+        selectedBorderColor: Colors.lightBlue,
         renderBorder: false,
         fillColor: Colors.transparent,
         children: <Widget>[
-          Icon(Icons.sentiment_very_dissatisfied, size: 36),
-          Icon(Icons.sentiment_dissatisfied, size: 36),
-          Icon(Icons.sentiment_neutral, size: 36),
-          Icon(Icons.sentiment_satisfied, size: 36),
-          Icon(Icons.sentiment_very_satisfied, size: 36),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 12.0, 
+              right: 12.0),
+            child: Icon(
+              Icons.sentiment_very_dissatisfied, 
+              size: 36),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 12.0, 
+              right: 12.0),
+            child: Icon(
+              Icons.sentiment_dissatisfied, 
+              size: 36),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 12.0, 
+              right: 12.0),
+            child: Icon(
+              Icons.sentiment_neutral, 
+              size: 36),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 12.0, 
+              right: 12.0),
+            child: Icon(
+              Icons.sentiment_satisfied, 
+              size: 36),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 12.0, 
+              right: 12.0),
+            child: Icon(
+              Icons.sentiment_very_satisfied, 
+              size: 36),
+          ),
         ],
         isSelected: isSelected,
         onPressed: (int index) {
           setState(() {
             isSelected[index] = !isSelected[index];
-            //TODO: furthe implementation on Toggle buttons API sections.
+            //TODO: further implementation on Toggle buttons API sections.
           });
         },
       ),

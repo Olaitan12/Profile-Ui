@@ -44,16 +44,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Stack(
-              alignment: AlignmentDirectional.topCenter,
-              overflow: Overflow.visible,
-              children: <Widget>[
-                _buildBackgroundCover(),
-                _buildGreetings(),
-                _buildMoodHolder(),
-              ],
-            ),
+            _buildTopStack(),
             SizedBox(height: 50.0),
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  _buildNotificationCard(),
+                  _buildNextAppointmentTitle(),
+                  _buildNextAppointmentInfo(),
+                ],
+              ),
+            ),
           ]
         ),
       ),
@@ -87,6 +90,18 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: onTapped,
         ),
     );
+  }
+
+  Stack _buildTopStack() {
+    return Stack(
+            alignment: AlignmentDirectional.topCenter,
+            overflow: Overflow.visible,
+            children: <Widget>[
+              _buildBackgroundCover(),
+              _buildGreetings(),
+              _buildMoodHolder(),
+            ],
+          );
   }
 
   _buildBackgroundCover() {
@@ -142,6 +157,100 @@ class _MyHomePageState extends State<MyHomePage> {
           ]
         ),
         child: MyMoods(),
+      ),
+    );
+  }
+
+  _buildNotificationCard() {
+    return Container(
+      padding: EdgeInsets.all(12.0),
+      decoration: BoxDecoration(
+        color: lightColor,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: ListTile(
+        leading: Icon(
+          LineAwesomeIcons.calendar_check_o,
+          color: Colors.white,
+          size: 32,
+        ),
+        title: Text("Your visit with \n Dr. james",
+        style: notificationTitleStyle,
+        ),
+        trailing: OutlineButton(
+          onPressed: () {},
+          color: Colors.transparent,
+          borderSide: BorderSide(
+            color: Colors.white,
+            width: 1.0
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(26),
+          ),
+          child: Text(
+            "Review & Add Notes",
+            style: notificationButtonStyle,
+          ),
+        ),
+      ),
+    );
+  }
+
+  _buildNextAppointmentTitle() {
+    return Container(
+      margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Text(
+            'Your Next Appointment',
+            style: nextAppointmentTitleStyle,
+          ),
+          Text(
+            'See All',
+            style: nextAppointmentSubtitleStyle,
+          )
+        ],
+      ),
+    );
+  }
+
+  _buildNextAppointmentInfo(){
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              CircleAvatar(
+                backgroundColor: Colors.grey,
+                backgroundImage: NetworkImage(USER_IMAGE),
+                radius: 36,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: ' Dr Ismail',
+                  style: appointmentMainStyle,
+                  children: [
+                    TextSpan(
+                      text: '\n Sunday, June 5th at 6:00pm',
+                      style: appointmentDateStyle,
+                    ),
+                    TextSpan(
+                      text: '\n Aruna Ogun Special Hospital\n Ikorodu Lagos',
+                      style: appointmentVenueStyle,
+                    ),
+                  ]
+                )
+              ),
+            ],
+          ),
+          
+        ],
       ),
     );
   }

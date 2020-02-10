@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const mainBgColor = Color(0xfff2f2f2);
+const mainBgColor = Color(0xFFf2f2f2f2);
 const darkColor = Color(0xff1b262c);
 const midColor = Color(0xff0f4c75);
 const lightColor = Color(0xff3282b8);
@@ -22,4 +22,4 @@ const redGradient = LinearGradient(
 );
 
 const USER_IMAGE = 
-  'https://cdn.pixabay.com/photo/2013/10/16/22/42/head-196541_960_720.jpg';
+  "https://cdn.pixabay.com/photo/2013/10/16/22/42/head-196541_960_720.jpg";
