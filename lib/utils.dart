@@ -7,7 +7,7 @@ const lightColor = Color(0xff3282b8);
 const darkRedColor = Color(0xffbbe1fa);
 const lightRedColor = Color(0xfffd685a);
 
-const purpleGradient = LinearGradient(
+const blueGradient = LinearGradient(
   colors: <Color>[darkColor, midColor, lightColor],
   stops: [0.0, 0.5, 1.0],
   begin: Alignment.centerLeft,
